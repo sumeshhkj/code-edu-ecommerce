@@ -5,10 +5,9 @@ from .models import Category, Product
 # Create your views here.
 
 def home(request):
-    """
-    Render the homepage.
-    """
-    return render(request, 'store/home.html')
+    trending_products = Product.objects.filter(trending=1)
+    context = {"trending_products": trending_products}
+    return render(request, 'store/home.html',context)
 
 
 def collections(request):

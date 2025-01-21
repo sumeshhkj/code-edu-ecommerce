@@ -6,3 +6,22 @@
 .checkoutform input{
         font-size :17px !important;
 }
+
+
+/* Add hover effect to product cards */
+.card:hover {
+    transform: translateY(-10px);  /* Elevates the card on hover */
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);  /* Shadow effect */
+}
+
+/* Add padding inside the card */
+.card-body {
+    padding: 20px;  /* Add more space inside the card */
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .card {
+        margin-bottom: 20px;  /* Adjust the margin on smaller screens */
+    }
+}
