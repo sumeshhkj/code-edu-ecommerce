@@ -1,0 +1,8 @@
+asgiref==3.8.1
+Django==5.1.4
+mpmath==1.3.0
+mysqlclient @ file:///Users/runner/miniforge3/conda-bld/mysqlclient_1731700346464/work
+setuptools==75.1.0
+sqlparse==0.5.2
+sympy==1.13.3
+wheel==0.44.0
