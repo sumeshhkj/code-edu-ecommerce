@@ -31,10 +31,11 @@ ALLOWED_HOSTS = []
 
 
 # Application definition
-
 INSTALLED_APPS = [
     "jazzmin",
-    "storeapp",
+    "storeapp",  # Your custom app for the store
+    "rest_framework",  # Add Django REST Framework
+    "corsheaders",
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -43,15 +44,29 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
 ]
 
+
+
+# CORS Configuration
+CORS_ALLOW_ALL_ORIGINS = True  # Allow all origins (useful for development)
+
+# If you want to restrict specific domains instead of allowing all origins, you can use:
+# CORS_ALLOWED_ORIGINS = [
+#     "http://localhost:3000",  # Example URL for your Flutter app
+#     "http://yourflutterapp.com",  # Add your app's production URL here
+# ]
+
+
 MIDDLEWARE = [
-    'django.middleware.security.SecurityMiddleware',
+    'corsheaders.middleware.CorsMiddleware',  # Add this line at the top
+    'django.middleware.security.SecurityMiddleware',  # If you have this, keep it here
     'django.contrib.sessions.middleware.SessionMiddleware',
-    'django.middleware.common.CommonMiddleware',
+    'django.middleware.common.CommonMiddleware',  # After CORS middleware
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
+
 
 ROOT_URLCONF = 'EcomOne.urls'
 

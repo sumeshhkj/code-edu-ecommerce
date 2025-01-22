@@ -3,6 +3,7 @@ from . import views
 from django.conf import settings
 from storeapp.controller import authview, cart, wishlist, checkout, order
 from django.conf.urls.static import static
+from .views import ProductListView, ProductDetailView
 
 app_name = 'storeapp'
 
@@ -35,6 +36,11 @@ urlpatterns = [
     path('proceed-to-pay/', checkout.razorpaycheck, name='proceed-to-pay'),
     path('order/', order.order_view, name='order'),
     path('view-order/<str:t_no>/', order.view_order, name='orderview'),
+
+    #API
+    path('api/products/', ProductListView.as_view(), name='product-list'),  # Get all products
+    path('api/products/<int:pk>/', ProductDetailView.as_view(), name='product-detail'),  # Get product by ID
+
 ]
 
 # Serving static and media files during development

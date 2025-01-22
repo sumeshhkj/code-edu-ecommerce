@@ -4,6 +4,7 @@ from storeapp import views
 from django.conf import settings
 from django.conf.urls.static import static
 from storeapp.controller import authview, cart, wishlist, checkout, order
+from storeapp.views import ProductListView, ProductDetailView
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -35,6 +36,10 @@ urlpatterns = [
     # Order URLs
     path('order/', order.order_view, name='order'),
     path('view-order/<str:t_no>/', order.view_order, name='orderview'),
+
+    # API
+    path('api/products/', ProductListView.as_view(), name='product-list'),  # Get all products
+    path('api/products/<int:pk>/', ProductDetailView.as_view(), name='product-detail'),  # Get product by ID
 ]
 
 if settings.DEBUG:
